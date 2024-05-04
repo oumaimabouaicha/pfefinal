@@ -44,8 +44,10 @@ export default function CarouselProd() {
         <div>{element.designation}</div>
         <div>{element.prix} TND</div>
         </div>
+        
       )
     )}
   </Carousel>
+  
   );
 }

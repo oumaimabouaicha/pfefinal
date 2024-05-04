@@ -4,6 +4,7 @@ import cartsliceReducer from "../features/cartslice"
 import scategoriesReducer from "../features/scategorieslice"
 import categoriesReducer from "../features/categorieslice"
 import authReducer from "../features/AuthSlice"
+import orderReducer from "../features/orderSlice"
 
 const store = configureStore({
 reducer: {
@@ -11,7 +12,8 @@ storearticles:articlesReducer,
 storecart:cartsliceReducer,
 storescategories: scategoriesReducer,
 storecategories: categoriesReducer,
-auth:authReducer
+auth:authReducer,
+order:orderReducer
 }
 })
 export default store

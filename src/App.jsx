@@ -25,8 +25,6 @@ import Insertcategorie from "./components/admin/categories/Insertcategorie"
 import Editcategorie from "./components/admin/categories/Editcategorie";
 
 
-
-
 function App() {
   
 
@@ -58,6 +56,7 @@ function App() {
         <Route path="/categories/add" element={<Insertcategorie/>}/>
         <Route path="/categories/edit/:id" element={<Editcategorie/>}/>
 
+        
         <Route path='/pay/:total' element={<StripePayment/>}/>
         <Route path="/logout" element={<Logout/>}/>
 </Route>

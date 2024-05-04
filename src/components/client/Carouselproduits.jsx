@@ -19,7 +19,7 @@ const Carouselproduits = () => {
        <h3><i>Les produits</i></h3>
    
       <CarouselProd/> 
-
+      <hr/>
     </div>
   );
 };

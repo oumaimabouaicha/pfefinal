@@ -4,8 +4,21 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { useNavigate,useParams } from "react-router-dom";
+
+import {useDispatch,useSelector} from "react-redux";
+import {createOrder} from "../../features/orderSlice"
+import { clearCart } from "../../features/cartslice";
+
 const MySwal = withReactContent(Swal);
 function StripePayment() {
+
+    const dispatch= useDispatch();
+    const cart = useSelector((state) => state.cart);
+    //let tabc=[];
+    //cart.cartItems.map((c)=>{
+    //tabc.push({id:c._id,quantitiy:c.cartQuantity,price:c.cartQuantity*c.prixVente})
+    //})
+
 let navigate=useNavigate();
 const {total} = useParams();
 const publishableKey ='pk_test_51LPiuwJrAgLp47RROP5cCV0FGec4QaTZMrsjcyECBJbuNdjZGhbhGgcUPu3u5lKoXBTUFH2JrOeFqMtrx2bUkx0800QZNcawhc';
@@ -28,6 +41,15 @@ icon: 'error',
 title: 'Payment was not successful',
 time: 4000,
 });
+  
+let order={
+    allProduct: tabc,
+    user:user.user,
+    amount: total
+    }
+    dispatch(createOrder(order))
+    dispatch(clearCart())
+
 navigate('/cart')
 };
 const payNow = async (token) => { console.log(JSON.stringify(token))
